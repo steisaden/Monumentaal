@@ -2,11 +2,12 @@ import { useState } from "react";
 import { Link, useSearchParams } from "react-router";
 import { Filter, MapPin, Star, Shield, ArrowRight } from "lucide-react";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
+import { ProfileModal } from "../components/ui/ProfileModal";
 
 export default function Directory() {
   const [searchParams] = useSearchParams();
   const categoryParam = searchParams.get("category");
-  
+
   const [selectedCategory, setSelectedCategory] = useState(categoryParam || "All");
   const [selectedLocation, setSelectedLocation] = useState("All");
   const [showFilters, setShowFilters] = useState(false);
@@ -112,13 +113,13 @@ export default function Directory() {
       <div className="max-w-[1800px] mx-auto px-6 lg:px-12">
         {/* Header */}
         <div className="mb-12">
-          <h1 
-            className="font-['Cormorant_Garamond'] mb-6" 
+          <h1
+            className="font-['Cormorant_Garamond'] mb-6"
             style={{ fontSize: 'clamp(48px, 6vw, 72px)', fontWeight: 700, lineHeight: 1.1, color: '#1A1A1A' }}
           >
             Certified Specialists
           </h1>
-          <p 
+          <p
             className="font-['Space_Mono'] text-[#1A1A1A]/70 max-w-3xl"
             style={{ fontSize: '15px', lineHeight: 1.8 }}
           >
@@ -179,89 +180,93 @@ export default function Directory() {
         {/* Expert Cards */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {filteredExperts.map((expert) => (
-            <Link
+            <ProfileModal
               key={expert.id}
-              to={`/experts/${expert.id}`}
-              className="group bg-white border border-[#1A1A1A]/10 hover:border-[#2A4D69] transition-all overflow-hidden"
-            >
-              <div className="grid md:grid-cols-5 gap-6 p-6">
-                {/* Image */}
-                <div className="md:col-span-2">
-                  <div className="relative aspect-[4/5] overflow-hidden bg-[#E8E8E0]">
-                    <ImageWithFallback
-                      src={expert.image}
-                      alt={expert.name}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                    />
-                    {expert.certified && (
-                      <div className="absolute top-4 right-4 bg-[#2A4D69] text-[#F5F5F0] p-2">
-                        <Shield className="w-4 h-4" />
+              expert={expert}
+              trigger={
+                <button
+                  className="block w-full text-left group bg-white border border-[#1A1A1A]/10 hover:border-[#2A4D69] transition-all overflow-hidden"
+                >
+                  <div className="grid md:grid-cols-5 gap-6 p-6">
+                    {/* Image */}
+                    <div className="md:col-span-2">
+                      <div className="relative aspect-[4/5] overflow-hidden bg-[#E8E8E0]">
+                        <ImageWithFallback
+                          src={expert.image}
+                          alt={expert.name}
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                        />
+                        {expert.certified && (
+                          <div className="absolute top-4 right-4 bg-[#2A4D69] text-[#F5F5F0] p-2">
+                            <Shield className="w-4 h-4" />
+                          </div>
+                        )}
                       </div>
-                    )}
-                  </div>
-                </div>
+                    </div>
 
-                {/* Content */}
-                <div className="md:col-span-3 flex flex-col justify-between">
-                  <div>
-                    <div className="flex items-start justify-between mb-3">
+                    {/* Content */}
+                    <div className="md:col-span-3 flex flex-col justify-between">
                       <div>
-                        <h3 className="font-['Cormorant_Garamond']" style={{ fontSize: '28px', fontWeight: 700, color: '#1A1A1A', lineHeight: 1.2 }}>
-                          {expert.name}
-                        </h3>
-                        <p className="font-['Space_Mono'] text-[#1A1A1A]/70 mt-1" style={{ fontSize: '13px' }}>
-                          {expert.company}
+                        <div className="flex items-start justify-between mb-3">
+                          <div>
+                            <h3 className="font-['Cormorant_Garamond']" style={{ fontSize: '28px', fontWeight: 700, color: '#1A1A1A', lineHeight: 1.2 }}>
+                              {expert.name}
+                            </h3>
+                            <p className="font-['Space_Mono'] text-[#1A1A1A]/70 mt-1" style={{ fontSize: '13px' }}>
+                              {expert.company}
+                            </p>
+                          </div>
+                        </div>
+
+                        <div className="flex items-center gap-4 mb-4">
+                          <div className="flex items-center gap-1">
+                            <Star className="w-4 h-4 fill-[#2A4D69] text-[#2A4D69]" />
+                            <span className="font-['Space_Mono']" style={{ fontSize: '14px', fontWeight: 600 }}>
+                              {expert.rating}
+                            </span>
+                            <span className="font-['Space_Mono'] text-[#1A1A1A]/50" style={{ fontSize: '13px' }}>
+                              ({expert.reviews})
+                            </span>
+                          </div>
+                          <div className="flex items-center gap-1 text-[#1A1A1A]/70">
+                            <MapPin className="w-4 h-4" />
+                            <span className="font-['Space_Mono']" style={{ fontSize: '13px' }}>
+                              {expert.location}
+                            </span>
+                          </div>
+                        </div>
+
+                        <p className="font-['Space_Mono'] text-[#1A1A1A]/70 mb-4" style={{ fontSize: '13px', lineHeight: 1.7 }}>
+                          {expert.description}
                         </p>
-                      </div>
-                    </div>
 
-                    <div className="flex items-center gap-4 mb-4">
-                      <div className="flex items-center gap-1">
-                        <Star className="w-4 h-4 fill-[#2A4D69] text-[#2A4D69]" />
-                        <span className="font-['Space_Mono']" style={{ fontSize: '14px', fontWeight: 600 }}>
-                          {expert.rating}
-                        </span>
-                        <span className="font-['Space_Mono'] text-[#1A1A1A]/50" style={{ fontSize: '13px' }}>
-                          ({expert.reviews})
-                        </span>
+                        <div className="flex flex-wrap gap-2 mb-4">
+                          {expert.tags.map((tag, index) => (
+                            <span
+                              key={index}
+                              className="font-['Space_Mono'] px-2 py-1 bg-[#E8E8E0] text-[#1A1A1A]"
+                              style={{ fontSize: '11px' }}
+                            >
+                              {tag}
+                            </span>
+                          ))}
+                        </div>
                       </div>
-                      <div className="flex items-center gap-1 text-[#1A1A1A]/70">
-                        <MapPin className="w-4 h-4" />
-                        <span className="font-['Space_Mono']" style={{ fontSize: '13px' }}>
-                          {expert.location}
+
+                      <div className="flex items-center justify-between pt-4 border-t border-[#1A1A1A]/10">
+                        <span className="font-['Space_Mono'] text-[#1A1A1A]/70" style={{ fontSize: '13px' }}>
+                          {expert.experience} years experience
                         </span>
+                        <div className="flex items-center gap-2 text-[#2A4D69] font-['Space_Mono']" style={{ fontSize: '13px' }}>
+                          View Profile
+                          <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                        </div>
                       </div>
-                    </div>
-
-                    <p className="font-['Space_Mono'] text-[#1A1A1A]/70 mb-4" style={{ fontSize: '13px', lineHeight: 1.7 }}>
-                      {expert.description}
-                    </p>
-
-                    <div className="flex flex-wrap gap-2 mb-4">
-                      {expert.tags.map((tag, index) => (
-                        <span
-                          key={index}
-                          className="font-['Space_Mono'] px-2 py-1 bg-[#E8E8E0] text-[#1A1A1A]"
-                          style={{ fontSize: '11px' }}
-                        >
-                          {tag}
-                        </span>
-                      ))}
                     </div>
                   </div>
-
-                  <div className="flex items-center justify-between pt-4 border-t border-[#1A1A1A]/10">
-                    <span className="font-['Space_Mono'] text-[#1A1A1A]/70" style={{ fontSize: '13px' }}>
-                      {expert.experience} years experience
-                    </span>
-                    <div className="flex items-center gap-2 text-[#2A4D69] font-['Space_Mono']" style={{ fontSize: '13px' }}>
-                      View Profile
-                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </Link>
+                </button>
+              }
+            />
           ))}
         </div>
 

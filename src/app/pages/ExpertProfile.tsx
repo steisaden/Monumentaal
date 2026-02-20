@@ -14,7 +14,7 @@ export default function ExpertProfile() {
     location: "Binnenstad, 's-Hertogenbosch",
     experience: 28,
     rating: 4.9,
-    reviews: 47,
+    reviewCount: 47,
     certified: true,
     phone: "+31 73 123 4567",
     email: "info@vandermeer-restauratie.nl",
@@ -136,7 +136,7 @@ export default function ExpertProfile() {
                         {expert.rating} / 5.0
                       </div>
                       <div className="font-['Space_Mono'] text-[#1A1A1A]/70" style={{ fontSize: '11px' }}>
-                        {expert.reviews} Reviews
+                        {expert.reviewCount} Reviews
                       </div>
                     </div>
                   </div>
