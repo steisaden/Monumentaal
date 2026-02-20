@@ -148,18 +148,18 @@ export function ProfileModal({ expert, trigger }: { expert: ExpertData, trigger:
 
                             {/* Add Carousel Here */}
                             <h3 className="font-['Cormorant_Garamond'] text-2xl font-bold mb-4">Recent Projects</h3>
-                            <div className="mb-8 px-8 relative">
+                            <div className="mb-8 px-12 relative">
                                 <Carousel
                                     opts={{
-                                        align: "start",
+                                        align: "center",
                                         loop: true,
                                     }}
-                                    className="w-full max-w-sm"
+                                    className="w-full"
                                 >
                                     <CarouselContent>
                                         {expert.projectImages.map((imageSrc, index) => (
                                             <CarouselItem key={index}>
-                                                <div className="relative aspect-square w-full bg-[#E8E8E0]">
+                                                <div className="relative aspect-[4/3] w-full bg-[#E8E8E0]">
                                                     <ImageWithFallback
                                                         src={imageSrc}
                                                         alt={`Project preview ${index + 1}`}
@@ -169,8 +169,8 @@ export function ProfileModal({ expert, trigger }: { expert: ExpertData, trigger:
                                             </CarouselItem>
                                         ))}
                                     </CarouselContent>
-                                    <CarouselPrevious className="absolute -left-4 bg-[#F5F5F0] border border-[#1A1A1A]/20 text-[#1A1A1A] hover:bg-[#E8E8E0] hover:text-[#2A4D69]" />
-                                    <CarouselNext className="absolute -right-4 bg-[#F5F5F0] border border-[#1A1A1A]/20 text-[#1A1A1A] hover:bg-[#E8E8E0] hover:text-[#2A4D69]" />
+                                    <CarouselPrevious className="absolute -left-12 bg-[#F5F5F0] border border-[#1A1A1A]/20 text-[#1A1A1A] hover:bg-[#E8E8E0] hover:text-[#2A4D69]" />
+                                    <CarouselNext className="absolute -right-12 bg-[#F5F5F0] border border-[#1A1A1A]/20 text-[#1A1A1A] hover:bg-[#E8E8E0] hover:text-[#2A4D69]" />
                                 </Carousel>
                             </div>
 
