@@ -2,6 +2,11 @@ import { useState } from "react";
 import { ChevronLeft, ChevronRight, MapPin, Calendar } from "lucide-react";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
 import { Link } from "react-router";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+} from "../components/ui/carousel";
 
 export default function ProjectShowcase() {
   const [selectedProject, setSelectedProject] = useState(0);
@@ -52,13 +57,13 @@ export default function ProjectShowcase() {
       {/* Header */}
       <section className="py-24">
         <div className="max-w-[1800px] mx-auto px-6 lg:px-12">
-          <h1 
-            className="font-['Cormorant_Garamond'] mb-6" 
+          <h1
+            className="font-['Cormorant_Garamond'] mb-6"
             style={{ fontSize: 'clamp(48px, 6vw, 72px)', fontWeight: 700, lineHeight: 1.1, color: '#1A1A1A' }}
           >
             Project Showcase
           </h1>
-          <p 
+          <p
             className="font-['Space_Mono'] text-[#1A1A1A]/70 max-w-3xl"
             style={{ fontSize: '15px', lineHeight: 1.8 }}
           >
@@ -90,29 +95,35 @@ export default function ProjectShowcase() {
               </button>
             </div>
 
-            {/* Before/After Images */}
-            <div className="grid md:grid-cols-2">
-              <div className="relative">
-                <div className="absolute top-6 left-6 bg-white px-4 py-2 font-['Space_Mono'] z-10" style={{ fontSize: '13px', textTransform: 'uppercase', letterSpacing: '0.1em' }}>
-                  Before
-                </div>
-                <ImageWithFallback
-                  src={currentProject.before}
-                  alt={`${currentProject.title} - Before`}
-                  className="w-full aspect-[4/3] object-cover"
-                />
-              </div>
-              <div className="relative">
-                <div className="absolute top-6 left-6 bg-[#2A4D69] text-[#F5F5F0] px-4 py-2 font-['Space_Mono'] z-10" style={{ fontSize: '13px', textTransform: 'uppercase', letterSpacing: '0.1em' }}>
-                  After
-                </div>
-                <ImageWithFallback
-                  src={currentProject.after}
-                  alt={`${currentProject.title} - After`}
-                  className="w-full aspect-[4/3] object-cover"
-                />
-              </div>
-            </div>
+            {/* Before/After Images Carousel */}
+            <Carousel opts={{ align: "start" }} className="w-full">
+              <CarouselContent className="ml-0">
+                <CarouselItem className="pl-0 md:basis-1/2">
+                  <div className="relative">
+                    <div className="absolute top-6 left-6 bg-white px-4 py-2 font-['Space_Mono'] z-10" style={{ fontSize: '13px', textTransform: 'uppercase', letterSpacing: '0.1em' }}>
+                      Before
+                    </div>
+                    <ImageWithFallback
+                      src={currentProject.before}
+                      alt={`${currentProject.title} - Before`}
+                      className="w-full aspect-[4/3] object-cover"
+                    />
+                  </div>
+                </CarouselItem>
+                <CarouselItem className="pl-0 md:basis-1/2">
+                  <div className="relative">
+                    <div className="absolute top-6 left-6 bg-[#2A4D69] text-[#F5F5F0] px-4 py-2 font-['Space_Mono'] z-10" style={{ fontSize: '13px', textTransform: 'uppercase', letterSpacing: '0.1em' }}>
+                      After
+                    </div>
+                    <ImageWithFallback
+                      src={currentProject.after}
+                      alt={`${currentProject.title} - After`}
+                      className="w-full aspect-[4/3] object-cover"
+                    />
+                  </div>
+                </CarouselItem>
+              </CarouselContent>
+            </Carousel>
 
             {/* Project Details */}
             <div className="p-12">
@@ -150,7 +161,7 @@ export default function ProjectShowcase() {
                     <h4 className="font-['Space_Mono'] mb-4" style={{ fontSize: '11px', textTransform: 'uppercase', letterSpacing: '0.15em' }}>
                       Project Details
                     </h4>
-                    
+
                     <div className="space-y-4">
                       <div>
                         <div className="font-['Space_Mono'] text-[#1A1A1A]/70 mb-1" style={{ fontSize: '11px', textTransform: 'uppercase' }}>
@@ -218,9 +229,8 @@ export default function ProjectShowcase() {
               <button
                 key={index}
                 onClick={() => setSelectedProject(index)}
-                className={`relative aspect-video overflow-hidden border-2 transition-all ${
-                  selectedProject === index ? 'border-[#2A4D69]' : 'border-[#1A1A1A]/10 hover:border-[#2A4D69]/50'
-                }`}
+                className={`relative aspect-video overflow-hidden border-2 transition-all ${selectedProject === index ? 'border-[#2A4D69]' : 'border-[#1A1A1A]/10 hover:border-[#2A4D69]/50'
+                  }`}
               >
                 <ImageWithFallback
                   src={project.after}
