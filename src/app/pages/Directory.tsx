@@ -28,7 +28,12 @@ export default function Directory() {
       certified: true,
       tags: ["Knipvoeg", "Voegwerk", "Steenreparatie"],
       description: "Specialized in monumental facades with traditional lime mortar techniques.",
-      image: "https://images.unsplash.com/photo-1534030347209-467a5b0ad3e6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkcmF3aW5nfGVufDF8fHx8MTcyMjg3NjcyMHww&ixlib=rb-4.1.0&q=80&w=1080"
+      image: "https://images.unsplash.com/photo-1534030347209-467a5b0ad3e6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkcmF3aW5nfGVufDF8fHx8MTcyMjg3NjcyMHww&ixlib=rb-4.1.0&q=80&w=1080",
+      projectImages: [
+        "https://images.unsplash.com/photo-1664792692001-9fca2408a577?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkdXRjaCUyMGhlcml0YWdlJTIwYXJjaGl0ZWN0dXJlJTIwZmFjYWRlfGVufDF8fHx8MTc3MTQxNzA3OHww&ixlib=rb-4.1.0&q=80&w=1080",
+        "https://images.unsplash.com/photo-1601576368385-58dcb3319b40?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxiZWZvcmUlMjBhZnRlciUyMGJ1aWxkaW5nJTIwcmVzdG9yYXRpb258ZW58MXx8fHwxNzcxNDE3MTc3fDA&ixlib=rb-4.1.0&q=80&w=1080",
+        "https://images.unsplash.com/photo-1770281380343-d14cf5a89c6b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxoaXN0b3JpYyUyMGJ1aWxkaW5nJTIwZGV0YWlsJTIwd29ya3xlbnwxfHx8fDE3NzE0MTcxNzh8MA&ixlib=rb-4.1.0&q=80&w=1080"
+      ]
     },
     {
       id: 2,
@@ -42,7 +47,12 @@ export default function Directory() {
       certified: true,
       tags: ["Pannen", "Leien", "Dakisolatie"],
       description: "Third-generation roofer with expertise in historic tile restoration.",
-      image: "https://images.unsplash.com/photo-1540569014015-19a7be504e3a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtYWxlJTIwcG9ydHJhaXR8ZW58MXx8fHwxNzcxNDE3MTM3fDA&ixlib=rb-4.1.0&q=80&w=1080"
+      image: "https://images.unsplash.com/photo-1540569014015-19a7be504e3a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtYWxlJTIwcG9ydHJhaXR8ZW58MXx8fHwxNzcxNDE3MTM3fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      projectImages: [
+        "https://images.unsplash.com/photo-1548254689-2d7a62331d96?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0aWxlJTIwcm9vZiUyMHBhdHRlcm5zJTIwaGVyaXRhZ2V8ZW58MXx8fHwxNzcxNDE3MTAzfDA&ixlib=rb-4.1.0&q=80&w=1080",
+        "https://images.unsplash.com/photo-1621256674668-cb864b2169b0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxvbGQlMjBkdXRjaCUyMHJvb2Z8ZW58MXx8fHwxNzcxNDkzNDIyfDA&ixlib=rb-4.1.0&q=80&w=1080",
+        "https://images.unsplash.com/photo-1481026469463-66327c86e544?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjaHVyY2glMjByb29mJTIwdGlsZXN8ZW58MXx8fHwxNzcxNDkzNDIzfDA&ixlib=rb-4.1.0&q=80&w=1080"
+      ]
     },
     {
       id: 3,
@@ -56,7 +66,12 @@ export default function Directory() {
       certified: true,
       tags: ["Kalkmortel", "Historische technieken", "Voegrestauratie"],
       description: "Master craftsman in traditional pointing methods for heritage buildings.",
-      image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWx8ZW58MXx8fHwxNzIxOTM3OTUyfDA&ixlib=rb-4.1.0&q=80&w=1080"
+      image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWx8ZW58MXx8fHwxNzIxOTM3OTUyfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      projectImages: [
+        "https://images.unsplash.com/photo-1589955170741-9cd0b8827250?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb3J0YXIlMjBwb2ludGluZyUyMGJyaWNrd29ya3xlbnwxfHx8fDE3NzE0MTcxMDR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+        "https://images.unsplash.com/photo-1519292585351-6f2aeb34ce86?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxicmljayUyMGZhY2FkZSUyMHJlc3RvcmF0aW9ufGVufDF8fHx8MTc3MTQxNzEwM3ww&ixlib=rb-4.1.0&q=80&w=1080",
+        "https://images.unsplash.com/photo-1610486241065-9abfd3a129d2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxoZXJpdGFnZSUyMGJyaWNrd29ya3xlbnwxfHx8fDE3NzE0OTM0MjR8MA&ixlib=rb-4.1.0&q=80&w=1080"
+      ]
     },
     {
       id: 4,
@@ -70,7 +85,12 @@ export default function Directory() {
       certified: true,
       tags: ["Lijnzaadverf", "Kleurenonderzoek", "Raamrestauratie"],
       description: "Expert in authentic paint research and application for historic buildings.",
-      image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwb3J0cmFpdHxlbnwxfHx8fDE3Mjg5MjMxOTV8MA&ixlib=rb-4.1.0&q=80&w=1080"
+      image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwb3J0cmFpdHxlbnwxfHx8fDE3Mjg5MjMxOTV8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      projectImages: [
+        "https://images.unsplash.com/photo-1759307407460-154dd68c7215?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxoaXN0b3JpYyUyMGJ1aWxkaW5nJTIwcGFpbnRpbmd8ZW58MXx8fHwxNzcxNDE3MTA0fDA&ixlib=rb-4.1.0&q=80&w=1080",
+        "https://images.unsplash.com/photo-1574548488344-934d4ff462ef?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxyZXN0b3JlZCUyMHdpbmRvd3xlbnwxfHx8fDE3NzE0OTM0MjV8MA&ixlib=rb-4.1.0&q=80&w=1080",
+        "https://images.unsplash.com/photo-1557007787-eeabb0ca96ec?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxoZXJpdGFnZSUyMGRvb3JzfGVufDF8fHx8MTc3MTQ5MzQyNXww&ixlib=rb-4.1.0&q=80&w=1080"
+      ]
     },
     {
       id: 5,
@@ -84,7 +104,12 @@ export default function Directory() {
       certified: true,
       tags: ["Houtrestauratie", "Dubbel glas", "Beslag"],
       description: "Specialist in window restoration preserving original character with modern efficiency.",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhcmNoaXRlY3R8ZW58MXx8fHwxNjk5MjI3MzgzfDA&ixlib=rb-4.1.0&q=80&w=1080"
+      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhcmNoaXRlY3R8ZW58MXx8fHwxNjk5MjI3MzgzfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      projectImages: [
+        "https://images.unsplash.com/photo-1567098406704-403809e60ca6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3b29kZW4lMjB3aW5kb3clMjByZXN0b3JhdGlvbnxlbnwxfHx8fDE3NzEzMjU5ODJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+        "https://images.unsplash.com/photo-1497926135893-9c5950a7c4eb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxoZXJpdGFnZSUyMHdpbmRvd3xlbnwxfHx8fDE3NzE0OTM0MjZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+        "https://images.unsplash.com/photo-1522813582496-e24bfafb4055?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxoZXJpdGFnZSUyMGNhcnBlbnRyeXxlbnwxfHx8fDE3NzE0OTM0Mjd8MA&ixlib=rb-4.1.0&q=80&w=1080"
+      ]
     },
     {
       id: 6,
@@ -98,7 +123,12 @@ export default function Directory() {
       certified: true,
       tags: ["Mergel", "Zandsteen", "Steenconservering"],
       description: "Stone conservation expert with deep knowledge of regional materials.",
-      image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtZW58ZW58MXx8fHwxNzA3NzQ4Mzk5fDA&ixlib=rb-4.1.0&q=80&w=1080"
+      image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtZW58ZW58MXx8fHwxNzA3NzQ4Mzk5fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      projectImages: [
+        "https://images.unsplash.com/photo-1756728584560-b1231ef4d088?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzdG9uZSUyMG1hc29ucnklMjBjcmFmdHNtYW5zaGlwfGVufDF8fHx8MTc3MTQxNzEwNXww&ixlib=rb-4.1.0&q=80&w=1080",
+        "https://images.unsplash.com/photo-1764535729870-443a0c25a008?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxoaXN0b3JpYyUyMGNhdGhlZHJhbCUyMHN0b25lJTIwcmVzdG9yYXRpb258ZW58MXx8fHwxNzcxNDE3MDc3fDA&ixlib=rb-4.1.0&q=80&w=1080",
+        "https://images.unsplash.com/photo-1606760431448-69279add9139?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxvbGQlMjBzdG9uZSUyMGNodXJjaHxlbnwxfHx8fDE3NzE0OTM0Mjh8MA&ixlib=rb-4.1.0&q=80&w=1080"
+      ]
     }
   ];
 
