@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight, MapPin, Calendar } from "lucide-react";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
 import { Link } from "react-router";
@@ -6,10 +6,29 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
+  type CarouselApi
 } from "../components/ui/carousel";
 
 export default function ProjectShowcase() {
   const [selectedProject, setSelectedProject] = useState(0);
+  const [api, setApi] = useState<CarouselApi>();
+
+  useEffect(() => {
+    if (!api) return;
+    // Sync external selected state to carousel position
+    api.scrollTo(selectedProject);
+  }, [api, selectedProject]);
+
+  useEffect(() => {
+    if (!api) return;
+    const onSelect = () => {
+      setSelectedProject(api.selectedScrollSnap());
+    };
+    api.on("select", onSelect);
+    return () => {
+      api.off("select", onSelect);
+    };
+  }, [api]);
 
   const projects = [
     {
@@ -95,33 +114,35 @@ export default function ProjectShowcase() {
               </button>
             </div>
 
-            {/* Before/After Images Carousel */}
-            <Carousel opts={{ align: "start" }} className="w-full">
-              <CarouselContent className="ml-0">
-                <CarouselItem className="pl-0 md:basis-1/2">
-                  <div className="relative">
-                    <div className="absolute top-6 left-6 bg-white px-4 py-2 font-['Space_Mono'] z-10" style={{ fontSize: '13px', textTransform: 'uppercase', letterSpacing: '0.1em' }}>
-                      Before
+            {/* Before/After Swipeable Carousel */}
+            <Carousel setApi={setApi} className="w-full">
+              <CarouselContent>
+                {projects.map((project, idx) => (
+                  <CarouselItem key={idx}>
+                    <div className="grid md:grid-cols-2">
+                      <div className="relative">
+                        <div className="absolute top-6 left-6 bg-white px-4 py-2 font-['Space_Mono'] z-10" style={{ fontSize: '13px', textTransform: 'uppercase', letterSpacing: '0.1em' }}>
+                          Before
+                        </div>
+                        <ImageWithFallback
+                          src={project.before}
+                          alt={`${project.title} - Before`}
+                          className="w-full aspect-[4/3] object-cover"
+                        />
+                      </div>
+                      <div className="relative">
+                        <div className="absolute top-6 left-6 bg-[#2A4D69] text-[#F5F5F0] px-4 py-2 font-['Space_Mono'] z-10" style={{ fontSize: '13px', textTransform: 'uppercase', letterSpacing: '0.1em' }}>
+                          After
+                        </div>
+                        <ImageWithFallback
+                          src={project.after}
+                          alt={`${project.title} - After`}
+                          className="w-full aspect-[4/3] object-cover"
+                        />
+                      </div>
                     </div>
-                    <ImageWithFallback
-                      src={currentProject.before}
-                      alt={`${currentProject.title} - Before`}
-                      className="w-full aspect-[4/3] object-cover"
-                    />
-                  </div>
-                </CarouselItem>
-                <CarouselItem className="pl-0 md:basis-1/2">
-                  <div className="relative">
-                    <div className="absolute top-6 left-6 bg-[#2A4D69] text-[#F5F5F0] px-4 py-2 font-['Space_Mono'] z-10" style={{ fontSize: '13px', textTransform: 'uppercase', letterSpacing: '0.1em' }}>
-                      After
-                    </div>
-                    <ImageWithFallback
-                      src={currentProject.after}
-                      alt={`${currentProject.title} - After`}
-                      className="w-full aspect-[4/3] object-cover"
-                    />
-                  </div>
-                </CarouselItem>
+                  </CarouselItem>
+                ))}
               </CarouselContent>
             </Carousel>
 

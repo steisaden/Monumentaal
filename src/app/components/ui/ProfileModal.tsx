@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {
     Dialog,
     DialogContent,
@@ -7,13 +7,12 @@ import {
     DialogTrigger,
 } from "./dialog";
 import { ImageWithFallback } from "../figma/ImageWithFallback";
-import { MapPin, Star, Shield, Calendar, CheckCircle, Phone, Mail } from "lucide-react";
+import { MapPin, Star, Shield, Calendar, CheckCircle, Phone, Mail, ChevronLeft, ChevronRight } from "lucide-react";
 import {
     Carousel,
     CarouselContent,
     CarouselItem,
-    CarouselNext,
-    CarouselPrevious,
+    type CarouselApi
 } from "./carousel";
 import { Link } from "react-router";
 
@@ -34,6 +33,21 @@ export interface ExpertData {
 }
 
 export function ProfileModal({ expert, trigger }: { expert: ExpertData, trigger: React.ReactNode }) {
+    const [api, setApi] = useState<CarouselApi>();
+    const [current, setCurrent] = useState(0);
+
+    useEffect(() => {
+        if (!api) return;
+        setCurrent(api.selectedScrollSnap());
+        const onSelect = () => {
+            setCurrent(api.selectedScrollSnap());
+        };
+        api.on("select", onSelect);
+        return () => {
+            api.off("select", onSelect);
+        };
+    }, [api]);
+
     // Add some believable dummy copy to extend the basic expert object
     const bio = `${expert.name} is a renowned specialist in ${expert.specialization.toLowerCase()} with over ${expert.experience} years of dedicated experience in heritage conservation. Leading ${expert.company}, they have successfully completed numerous monumental restoration projects throughout ${expert.location} and the wider 's-Hertogenbosch area. Their work is characterized by a deep respect for historical accuracy and the use of authentic, traditional materials.`;
 
@@ -148,8 +162,22 @@ export function ProfileModal({ expert, trigger }: { expert: ExpertData, trigger:
 
                             {/* Add Carousel Here */}
                             <h3 className="font-['Cormorant_Garamond'] text-2xl font-bold mb-4">Recent Projects</h3>
-                            <div className="mb-8 px-12 relative">
+                            <div className="mb-8 relative">
+                                {/* Navigation Header */}
+                                <div className="flex items-center justify-between mb-4 border-b border-[#1A1A1A]/10 pb-4">
+                                    <button onClick={() => api?.scrollPrev()} className="p-2 hover:bg-[#E8E8E0] transition-colors rounded-full">
+                                        <ChevronLeft className="w-5 h-5" />
+                                    </button>
+                                    <div className="font-['Space_Mono'] text-[11px] uppercase tracking-widest text-[#1A1A1A]/70">
+                                        Project {current + 1} of {expert.projectImages.length}
+                                    </div>
+                                    <button onClick={() => api?.scrollNext()} className="p-2 hover:bg-[#E8E8E0] transition-colors rounded-full">
+                                        <ChevronRight className="w-5 h-5" />
+                                    </button>
+                                </div>
+
                                 <Carousel
+                                    setApi={setApi}
                                     opts={{
                                         align: "center",
                                         loop: true,
@@ -169,8 +197,6 @@ export function ProfileModal({ expert, trigger }: { expert: ExpertData, trigger:
                                             </CarouselItem>
                                         ))}
                                     </CarouselContent>
-                                    <CarouselPrevious className="absolute -left-12 bg-[#F5F5F0] border border-[#1A1A1A]/20 text-[#1A1A1A] hover:bg-[#E8E8E0] hover:text-[#2A4D69]" />
-                                    <CarouselNext className="absolute -right-12 bg-[#F5F5F0] border border-[#1A1A1A]/20 text-[#1A1A1A] hover:bg-[#E8E8E0] hover:text-[#2A4D69]" />
                                 </Carousel>
                             </div>
 
