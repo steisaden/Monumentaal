@@ -1,6 +1,7 @@
 import { Link } from "react-router";
 import { Search, ArrowRight, Shield, Users, Award } from "lucide-react";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
+import { InfoModal } from "../components/ui/InfoModal";
 
 export default function Home() {
   const stats = [
@@ -22,17 +23,17 @@ export default function Home() {
       <section className="max-w-[1800px] mx-auto px-6 lg:px-12 py-24 lg:py-32">
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
           <div>
-            <h1 
-              className="font-['Cormorant_Garamond'] mb-8" 
+            <h1
+              className="font-['Cormorant_Garamond'] mb-8"
               style={{ fontSize: 'clamp(48px, 8vw, 96px)', fontWeight: 700, lineHeight: 1.1, color: '#1A1A1A' }}
             >
               Heritage Craftspeople for Modern Times
             </h1>
-            <p 
+            <p
               className="font-['Space_Mono'] mb-12 text-[#1A1A1A]/70"
               style={{ fontSize: '15px', lineHeight: 1.8 }}
             >
-              Discover verified specialists for monumental restoration in 's-Hertogenbosch. 
+              Discover verified specialists for monumental restoration in 's-Hertogenbosch.
               Each expert vetted for traditional techniques and modern reliability.
             </p>
 
@@ -44,10 +45,17 @@ export default function Home() {
                 className="w-full px-8 py-6 bg-white border border-[#1A1A1A]/20 focus:border-[#2A4D69] focus:outline-none transition-colors font-['Space_Mono']"
                 style={{ fontSize: '14px' }}
               />
-              <button className="absolute right-4 top-1/2 -translate-y-1/2 bg-[#2A4D69] text-[#F5F5F0] px-6 py-3 hover:bg-[#1A3A4F] transition-colors flex items-center gap-2">
-                <Search className="w-4 h-4" />
-                <span className="font-['Space_Mono']" style={{ fontSize: '13px' }}>Search</span>
-              </button>
+              <InfoModal
+                title="Search Experience Coming Soon"
+                description="We are currently building our AI-powered search experience. Soon, you will be able to describe your project in natural language (e.g., 'Restore the knipvoeg on my 19th-century facade') and immediately connect with the most qualified local specialists."
+                imageSrc="https://images.unsplash.com/photo-1510484556118-a6d1dc792f44?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhcmNoaXRlY3R1cmUlMjBibHVlcHJpbnRzfGVufDF8fHx8MTc3MTQxNzEyM3ww&ixlib=rb-4.1.0&q=80&w=1080"
+                trigger={
+                  <button className="absolute right-4 top-1/2 -translate-y-1/2 bg-[#2A4D69] text-[#F5F5F0] px-6 py-3 hover:bg-[#1A3A4F] transition-colors flex items-center gap-2">
+                    <Search className="w-4 h-4" />
+                    <span className="font-['Space_Mono']" style={{ fontSize: '13px' }}>Search</span>
+                  </button>
+                }
+              />
             </div>
 
             <div className="flex flex-wrap gap-3">
